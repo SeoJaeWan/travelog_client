@@ -21,7 +21,8 @@ jobs:
 
       - name: Generate Environment File
         run: |
-          echo "NEXT_PUBLIC_CLIENT=${{ secrets.NEXT_PUBLIC_CLIENT }}" >> .env.production
+          echo "VITE_API_URL=${{ secrets.VITE_API_URL }}" >> .env.production
+          echo "VITE_CLIENT_URL=${{ secrets.VITE_CLIENT_URL }}" >> .env.production
 
       - name: Build and Push Docker Image
         run: |
