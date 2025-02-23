@@ -5,8 +5,6 @@ services:
     image: sjw7324/travelog:latest
     container_name: travelog
     restart: unless-stopped
-    volumes:
-      - travelog_dist:/app/dist
     networks:
       - shared_network
 
