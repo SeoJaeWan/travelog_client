@@ -5,6 +5,8 @@ services:
     image: sjw7324/travelog:latest
     container_name: travelog
     restart: unless-stopped
+    ports:
+      - "3004:3004"
     networks:
       - shared_network
 
