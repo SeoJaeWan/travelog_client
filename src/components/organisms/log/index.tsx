@@ -58,14 +58,14 @@ const Log = () => {
   const handlePrintLog = (id: number) => {
     const newTab = window.open(
       `${import.meta.env.VITE_CLIENT_URL}/print`,
-      "_blank"
+      "_blank",
     );
 
     if (newTab) {
       newTab.onload = () => {
         newTab.postMessage(
           { id, type: "child" },
-          import.meta.env.VITE_CLIENT_URL
+          import.meta.env.VITE_CLIENT_URL,
         );
       };
     }
@@ -95,7 +95,7 @@ const Log = () => {
                 <Title width={"100%"} as="p" className={"text-ellipsis"}>
                   {title}
                 </Title>
-                <LogStyle.TotalPrice>{getTravelDays(days)}</LogStyle.TotalPrice>
+                <LogStyle.Period>{getTravelDays(days)}</LogStyle.Period>
               </LogStyle.Item>
               <LogStyle.PrintButton onClick={() => handlePrintLog(id)}>
                 <FaPrint size={20} />

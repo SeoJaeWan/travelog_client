@@ -102,11 +102,12 @@ const PrintButton = styled.button`
   }
 `;
 
-const TotalPrice = styled.p`
+const Period = styled.p`
   margin-top: 5px;
 
   font-size: ${(props) => props.theme.font(14)};
   font-weight: 500;
+  text-align: left;
   color: ${(props) => props.theme.color.darkGray};
 `;
 
@@ -118,7 +119,7 @@ const LogStyle = {
   Item,
   SaveButton,
   PrintButton,
-  TotalPrice,
+  Period,
 };
 
 export default LogStyle;
