@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-const Container = styled.section`
+interface ContainerProps {
+  $isHidden: boolean;
+}
+
+const Container = styled.section<ContainerProps>`
   display: flex;
   flex-direction: column;
 
@@ -12,6 +16,12 @@ const Container = styled.section`
 
   border-right: 1px solid ${(props) => props.theme.color.gray};
   background-color: ${(props) => props.theme.color.white};
+
+  @media (max-width: ${(props) => props.theme.media.tablet}) {
+    display: ${(props) => (props.$isHidden ? "none" : "flex")};
+
+    width: calc(100vw - 30px);
+  }
 `;
 
 const ButtonList = styled.div`

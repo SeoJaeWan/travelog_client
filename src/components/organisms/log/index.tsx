@@ -7,9 +7,9 @@ import useLogsByKey from "@/hooks/apis/log/query/useLogsByKey";
 import useCreateLog from "@/hooks/apis/log/mutation/useCreateLog";
 import { Days } from "@/types/apis/day";
 import { useState } from "react";
-import useLog from "@/hooks/apis/log/query/useLog";
-import { useRemoveDay } from "@/hooks/apis/day/query/useDay";
-import { useRemovePin } from "@/hooks/apis/pin/query/usePin";
+import useLog, { useGetLog } from "@/hooks/apis/log/query/useLog";
+import { useGetDay, useRemoveDay } from "@/hooks/apis/day/query/useDay";
+import { useGetPin, useRemovePin } from "@/hooks/apis/pin/query/usePin";
 import LoadLogForm from "@/components/modelcules/loadLogForm";
 import KakaoShare from "@/utils/kakaoShare";
 import { PiExportBold } from "react-icons/pi";
@@ -25,6 +25,12 @@ const Log = () => {
   const { logKeys, updateLogKeys } = useLogKeys();
   const [isShowLoad, setIsShowLoad] = useState(false);
   const query = useLogsByKey(logKeys);
+
+  const logData = useGetLog();
+  const dayData = useGetDay();
+  const pinData = useGetPin();
+
+  const isHidden = !!(logData || dayData || pinData);
 
   const refetchLog = useLog(selectedLog);
   const removeDay = useRemoveDay();
@@ -72,7 +78,7 @@ const Log = () => {
   };
 
   return (
-    <LogStyle.Container>
+    <LogStyle.Container $isHidden={isHidden}>
       <LogStyle.ButtonList>
         <LogStyle.Button onClick={handleAddLog}>
           <FaPlus /> 추가
