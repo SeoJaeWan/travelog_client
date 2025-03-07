@@ -12,6 +12,10 @@ const AddPin = styled.div`
 
   color: ${(props) => props.theme.color.white};
   background-color: ${(props) => props.theme.color.gray};
+
+  @media (max-width: ${(props) => props.theme.media.tablet}) {
+    display: none;
+  }
 `;
 
 const DayDetailStyle = {

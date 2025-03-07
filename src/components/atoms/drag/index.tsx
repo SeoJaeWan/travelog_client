@@ -2,6 +2,7 @@ import { ReactNode, useEffect } from "react";
 import DragStyle from "./drag.style";
 import { useDrag, useDrop } from "react-dnd";
 import { getEmptyImage } from "react-dnd-html5-backend";
+import { media } from "@/styles/theme";
 
 export interface Value {
   type: string;
@@ -31,13 +32,20 @@ const Drag = (props: DragProps) => {
       },
       collect: (monitor) => monitor.isDragging(),
       end: ({ value }, monitor) => {
+        const currentWidth = window.innerWidth;
+        const isTablet = parseInt(media.tablet, 10);
+
+        if (currentWidth <= isTablet) {
+          return;
+        }
+
         if (!monitor.didDrop()) {
           onSubmit(value);
           document.body.classList.remove("dragging");
         }
       },
     }),
-    [value, onSubmit]
+    [value, onSubmit],
   );
 
   const [, drop] = useDrop(
@@ -45,12 +53,19 @@ const Drag = (props: DragProps) => {
       accept: type,
       canDrop: () => false,
       hover: (originValue: { value: Value }) => {
+        const currentWidth = window.innerWidth;
+        const isTablet = parseInt(media.tablet, 10);
+
+        if (currentWidth <= isTablet) {
+          return;
+        }
+
         if (originValue.value.index !== value.index) {
           onChange(value.index);
         }
       },
     }),
-    [value, onChange]
+    [value, onChange],
   );
 
   useEffect(() => {

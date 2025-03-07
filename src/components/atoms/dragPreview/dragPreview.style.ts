@@ -1,20 +1,9 @@
 import styled from "styled-components";
 
-interface PreviewProps {
-  $top: number;
-  $left: number;
-}
-
-const Container = styled.div<PreviewProps>`
-  position: fixed;
-  top: ${(props) => props.$top}px;
-  left: ${(props) => props.$left}px;
-
-  width: 30px;
-  height: 30px;
-
-  z-index: 20;
-  pointer-events: none;
+const Container = styled.div`
+  @media (max-width: ${(props) => props.theme.media.tablet}) {
+    display: none;
+  }
 `;
 
 const DragPreviewStyle = {
