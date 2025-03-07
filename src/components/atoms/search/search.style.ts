@@ -13,8 +13,17 @@ const Container = styled.div`
   position: fixed;
   z-index: 1;
   top: 20px;
-  left: 50%;
+  left: calc(50% + 24px);
   transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+`;
+
+const SearchBox = styled.div`
+  position: relative;
 
   width: 360px;
   height: 36px;
@@ -89,13 +98,29 @@ const Item = styled.button`
   }
 `;
 
+const CancelButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 24px;
+  height: 24px;
+
+  background-color: ${(props) => props.theme.color.shadow};
+  /* border: 2px solid ${(props) => props.theme.color.black}; */
+  border-radius: 50%;
+  color: ${(props) => props.theme.color.lightGray};
+`;
+
 const SearchStyle = {
   Container,
+  SearchBox,
   Form,
   Input,
   Button,
   Select,
   Item,
+  CancelButton,
 };
 
 export default SearchStyle;
