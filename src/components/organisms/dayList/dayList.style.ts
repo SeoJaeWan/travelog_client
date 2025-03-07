@@ -18,10 +18,6 @@ const Day = styled.button<DayProps>`
     props.$isCreateButton ? props.theme.color.gray : props.theme.color.primary};
 
   color: ${(props) => props.theme.color.white};
-
-  @media (max-width: ${(props) => props.theme.media.tablet}) {
-    display: none;
-  }
 `;
 
 const DayListStyle = {
