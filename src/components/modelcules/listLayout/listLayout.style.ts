@@ -51,6 +51,12 @@ const List = styled.div`
   overflow-y: auto;
 
   margin-top: 10px;
+
+  & > *:first-child {
+    @media (max-width: ${(props) => props.theme.media.tablet}) {
+      display: none;
+    }
+  }
 `;
 
 const ListLayoutStyle = {
