@@ -65,6 +65,10 @@ const DeleteButton = styled.button`
   height: 20px;
 
   color: ${(props) => props.theme.color.red};
+
+  @media (max-width: ${(props) => props.theme.media.tablet}) {
+    display: none;
+  }
 `;
 
 const IconBox = styled.div`

@@ -36,6 +36,12 @@ const Button = styled.button`
 
   padding: 15px 0;
   background-color: ${(props) => props.theme.color.white};
+
+  @media (max-width: ${(props) => props.theme.media.tablet}) {
+    &:first-child {
+      display: none;
+    }
+  }
 `;
 
 const List = styled.ul`
@@ -99,6 +105,10 @@ const PrintButton = styled.button`
 
   &:hover {
     color: ${(props) => props.theme.color.darkGray};
+  }
+
+  @media (max-width: ${(props) => props.theme.media.tablet}) {
+    display: none;
   }
 `;
 
