@@ -59,7 +59,7 @@ const SectionStyle = styled.section`
   }
 
   > div {
-    width: 400px;
+    width: 100%;
     padding: 15px;
   }
 

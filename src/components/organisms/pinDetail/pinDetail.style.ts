@@ -17,6 +17,12 @@ const Wrapper = styled.div`
   flex-direction: column;
 
   padding: 0 15px;
+
+  @media (max-width: ${(props) => props.theme.media.tablet}) {
+    & > div:last-child {
+      display: none;
+    }
+  }
 `;
 
 const Description = styled.div`
