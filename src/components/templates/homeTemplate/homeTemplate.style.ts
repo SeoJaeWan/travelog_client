@@ -12,6 +12,11 @@ const Container = styled.main`
     border-right: 1px solid ${(props) => props.theme.color.gray};
     border-left: 1px solid ${(props) => props.theme.color.gray};
   }
+
+  @media (max-width: ${(props) => props.theme.media.tablet}) {
+    width: 100vw;
+    height: 100vh;
+  }
 `;
 
 const HomeTemplateStyle = {
