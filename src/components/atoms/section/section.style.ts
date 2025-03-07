@@ -62,6 +62,10 @@ const SectionStyle = styled.section`
     width: 400px;
     padding: 15px;
   }
+
+  @media (max-width: ${(props) => props.theme.media.tablet}) {
+    width: calc(100vw - 30px);
+  }
 `;
 
 export default SectionStyle;
