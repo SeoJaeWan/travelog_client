@@ -64,7 +64,7 @@ const SectionStyle = styled.section`
   }
 
   @media (max-width: ${(props) => props.theme.media.tablet}) {
-    width: calc(100vw - 30px);
+    width: calc(100vw - (30px + 10px));
   }
 `;
 
