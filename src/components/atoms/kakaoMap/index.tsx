@@ -1,12 +1,10 @@
 import useMap from "@/hooks/utils/useMap";
 import { PropsWithChildren, useEffect, useState } from "react";
 import { Map, useKakaoLoader } from "react-kakao-maps-sdk";
-import KakaoMapStyle from "./kakaoMap.style";
-import { CgClose } from "react-icons/cg";
 
 const KakaoMap = (props: PropsWithChildren) => {
   const { children } = props;
-  const { map, clickMapState, cancelRightClick } = useMap();
+  const { map } = useMap();
   const [initCenter, setInitCenter] = useState({
     lat: 37.566535,
     lng: 126.9779692,
@@ -35,12 +33,6 @@ const KakaoMap = (props: PropsWithChildren) => {
       }}
     >
       {children}
-
-      {clickMapState && (
-        <KakaoMapStyle.CancelButton onClick={cancelRightClick}>
-          <CgClose size={16} />
-        </KakaoMapStyle.CancelButton>
-      )}
     </Map>
   );
 };
