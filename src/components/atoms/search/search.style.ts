@@ -23,6 +23,8 @@ const Container = styled.div`
 `;
 
 const SearchBox = styled.div`
+  position: relative;
+
   width: 360px;
   height: 36px;
 
