@@ -1,6 +1,7 @@
 import { useDragLayer, XYCoord } from "react-dnd";
 import { CSSProperties, ReactNode } from "react";
 import Drag, { Value } from "../drag";
+import DragPreviewStyle from "./dragPreview.style";
 
 const getStyle = (currentOffset: XYCoord): CSSProperties => {
   const { x, y } = currentOffset;
@@ -39,11 +40,11 @@ const DragPreview = (props: DragPreviewProps) => {
   }
 
   return (
-    <div style={getStyle(currentOffset)}>
+    <DragPreviewStyle.Container style={getStyle(currentOffset)}>
       <Drag {...item} type={type}>
         {children}
       </Drag>
-    </div>
+    </DragPreviewStyle.Container>
   );
 };
 
