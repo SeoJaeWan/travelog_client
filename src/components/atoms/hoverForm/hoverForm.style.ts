@@ -18,6 +18,10 @@ const Background = styled.button<BackgroundProps>`
 
   opacity: 0;
   transition: opacity 0.3s;
+
+  @media (max-width: ${(props) => props.theme.media.tablet}) {
+    display: none;
+  }
 `;
 
 const Container = styled.div`
